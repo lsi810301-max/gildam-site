@@ -374,10 +374,10 @@
     .contact { background: var(--navy); }
 
     .contact-inner {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1.4fr;
       gap: 6rem;
       align-items: start;
     }
@@ -389,7 +389,7 @@
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      padding-top: 0.5rem;
+      padding-top: 1.8rem;
     }
 
     .contact-item {}
@@ -417,6 +417,87 @@
 
     .contact-value a:hover { color: var(--gold-light); }
 
+    /* ── 상담 폼 ── */
+    .consult-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-field label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+    .form-field select option { background: var(--navy-mid); color: var(--white); }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus { border-color: var(--gold); }
+
+    .form-field textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      margin-top: 0.5rem;
+      padding: 0.95rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+      width: 100%;
+    }
+
+    .form-submit:hover { background: var(--gold); color: var(--navy); }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-msg {
+      font-size: 0.82rem;
+      font-weight: 300;
+      padding: 0.6rem 0;
+      display: none;
+    }
+
+    .form-msg.success { color: #7dd3a8; display: block; }
+    .form-msg.error { color: #f87171; display: block; }
+
     /* ── 푸터 ── */
     footer {
       background: #070f18;
@@ -435,6 +516,7 @@
       .about-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
       .about-inner > div:first-child { grid-column: 1 / -1; max-width: 200px; margin: 0 auto; }
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
 
       .services-grid { grid-template-columns: 1fr 1fr; }
     }
@@ -570,25 +652,62 @@
       <p class="section-label">Contact</p>
       <h2 class="section-title">상담 문의</h2>
       <p class="section-desc">법적 문제로 고민이 있으시다면 언제든지 연락 주십시오. 상담 예약을 받고 있습니다.</p>
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="contact-label">전화</div>
+          <div class="contact-value"><a href="tel:0632312319">063-231-2319</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">팩스</div>
+          <div class="contact-value">063-231-2317</div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">이메일</div>
+          <div class="contact-value"><a href="mailto:tony31@hanmail.net">tony31@hanmail.net</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-label">주소</div>
+          <div class="contact-value">전주시 덕진구 만성중앙로 19<br>명승법조타워 403호</div>
+        </div>
+      </div>
     </div>
-    <div class="contact-list">
-      <div class="contact-item">
-        <div class="contact-label">전화</div>
-        <div class="contact-value"><a href="tel:0632312319">063-231-2319</a></div>
+    <form class="consult-form" id="consultForm">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name">이름 *</label>
+          <input type="text" id="f-name" placeholder="홍길동" required>
+        </div>
+        <div class="form-field">
+          <label for="f-phone">연락처 *</label>
+          <input type="tel" id="f-phone" placeholder="010-0000-0000" required>
+        </div>
       </div>
-      <div class="contact-item">
-        <div class="contact-label">팩스</div>
-        <div class="contact-value">063-231-2317</div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-email">이메일</label>
+          <input type="email" id="f-email" placeholder="example@email.com">
+        </div>
+        <div class="form-field">
+          <label for="f-category">분야</label>
+          <select id="f-category">
+            <option value="">선택하세요</option>
+            <option value="민사">민사</option>
+            <option value="형사">형사</option>
+            <option value="가사·상속">가사·상속</option>
+            <option value="기업소송·자문">기업소송·자문</option>
+            <option value="건설·부동산">건설·부동산</option>
+            <option value="보험·금융">보험·금융</option>
+            <option value="기타">기타</option>
+          </select>
+        </div>
       </div>
-      <div class="contact-item">
-        <div class="contact-label">이메일</div>
-        <div class="contact-value"><a href="mailto:tony31@hanmail.net">tony31@hanmail.net</a></div>
+      <div class="form-field">
+        <label for="f-message">문의 내용 *</label>
+        <textarea id="f-message" placeholder="문의하실 내용을 간략히 적어주세요." required></textarea>
       </div>
-      <div class="contact-item">
-        <div class="contact-label">주소</div>
-        <div class="contact-value">전주시 덕진구 만성중앙로 19<br>명승법조타워 403호</div>
-      </div>
-    </div>
+      <p class="form-msg" id="formMsg"></p>
+      <button type="submit" class="form-submit" id="formBtn">상담 신청</button>
+    </form>
   </div>
 </section>
 
@@ -596,6 +715,48 @@
 <footer>
   &copy; 2026 법률사무소 길담 · 변호사 이삼일 · All rights reserved.
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+  const db = createClient(
+    'https://mavhiheiekjevcvcefvb.supabase.co',
+    'sb_publishable_2WL7fW7ibGRQxMlzMSlCUg_FP6o9MN5'
+  );
+
+  document.getElementById('consultForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formBtn');
+    const msg = document.getElementById('formMsg');
+
+    btn.disabled = true;
+    btn.textContent = '전송 중...';
+    msg.className = 'form-msg';
+    msg.textContent = '';
+
+    const payload = {
+      name:     document.getElementById('f-name').value.trim(),
+      phone:    document.getElementById('f-phone').value.trim(),
+      email:    document.getElementById('f-email').value.trim() || null,
+      category: document.getElementById('f-category').value || null,
+      message:  document.getElementById('f-message').value.trim(),
+    };
+
+    const { error } = await db.from('consultations').insert([payload]);
+
+    if (error) {
+      msg.className = 'form-msg error';
+      msg.textContent = '전송 중 오류가 발생했습니다. 전화로 문의해 주세요.';
+    } else {
+      msg.className = 'form-msg success';
+      msg.textContent = '상담 신청이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.';
+      this.reset();
+    }
+
+    btn.disabled = false;
+    btn.textContent = '상담 신청';
+  });
+</script>
 
 </body>
 </html>
