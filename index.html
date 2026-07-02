@@ -532,9 +532,9 @@
 <nav>
   <div class="nav-logo">법률사무소 길담 <span style="font-size:0.8em; color:var(--gold); font-weight:300; letter-spacing:0.05em;">吉談</span></div>
   <ul class="nav-links">
-    <li><a href="#about">사무소 소개</a></li>
-    <li><a href="#services">업무 분야</a></li>
-    <li><a href="#contact">연락처</a></li>
+    <li><a href="#about" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'});">사무소 소개</a></li>
+    <li><a href="#services" onclick="event.preventDefault();document.getElementById('services').scrollIntoView({behavior:'smooth'});">업무 분야</a></li>
+    <li><a href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'});">연락처</a></li>
   </ul>
 </nav>
 
@@ -544,7 +544,7 @@
   <h1>법률사무소 <span>길담<small style="font-size:0.45em; font-weight:400; letter-spacing:0.08em; color:var(--gold); vertical-align:middle; margin-left:0.4em;">吉談</small></span></h1>
   <div class="hero-divider"></div>
   <p class="hero-sub">정성과 신뢰를 바탕으로<br>고객의 문제해결을 책임집니다.</p>
-  <a href="#contact" class="hero-cta">상담 문의</a>
+  <a href="#contact" class="hero-cta" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'});">상담 문의</a>
 </section>
 
 <!-- 소개 -->
