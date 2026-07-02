@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>법률사무소 길담 | 변호사 이삼일</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #1a2e45;
+      --gold: #b89a5e;
+      --gold-light: #d4b882;
+      --white: #ffffff;
+      --gray-light: #f5f5f3;
+      --gray-text: #6b7280;
+      --text: #1a1a1a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── 네비게이션 ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(13, 27, 42, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-logo {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── 히어로 ── */
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(13,27,42,0.55), rgba(13,27,42,0.65)),
+        url('한옥마을.png') center center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 40%, rgba(184,154,94,0.06) 0%, transparent 70%);
+    }
+
+    .hero-badge {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero h1 span { color: var(--gold-light); }
+
+    .hero-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.95rem 2.6rem;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      font-weight: 400;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    /* ── 섹션 공통 ── */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+    }
+
+    .section-desc {
+      color: var(--gray-text);
+      font-size: 0.95rem;
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.9;
+    }
+
+    /* ── 소개 ── */
+    .about {
+      background: var(--gray-light);
+    }
+
+    .about-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .about-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.6rem;
+    }
+
+    .about-list li {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+      font-weight: 300;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .about-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 4px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .about-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .stat {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.4rem;
+    }
+
+    .stat-num {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── 업무 분야 ── */
+    .services { background: var(--white); }
+
+    .services-inner { max-width: 960px; margin: 0 auto; }
+
+    .services-header { margin-bottom: 4rem; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: #e5e5e5;
+      border: 1px solid #e5e5e5;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 2.4rem 2rem;
+      transition: background 0.25s;
+    }
+
+    .service-card:hover { background: var(--navy); }
+
+    .service-card:hover .service-title,
+    .service-card:hover .service-desc { color: var(--white); }
+
+    .service-icon {
+      width: 36px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 1.6rem;
+      transition: width 0.3s;
+    }
+
+    .service-card:hover .service-icon { width: 52px; }
+
+    .service-title {
+      font-family: 'Noto Serif KR', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.8rem;
+      transition: color 0.25s;
+    }
+
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.85;
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+
+    /* ── 연락처 ── */
+    .contact { background: var(--navy); }
+
+    .contact-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact .section-title { color: var(--white); }
+    .contact .section-desc { color: rgba(255,255,255,0.55); }
+
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding-top: 0.5rem;
+    }
+
+    .contact-item {}
+
+    .contact-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 300;
+    }
+
+    .contact-value a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-value a:hover { color: var(--gold-light); }
+
+    /* ── 푸터 ── */
+    footer {
+      background: #070f18;
+      padding: 2.5rem 5%;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── 반응형 ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+
+      .about-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .about-inner > div:first-child { grid-column: 1 / -1; max-width: 200px; margin: 0 auto; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 네비게이션 -->
+<nav>
+  <div class="nav-logo">법률사무소 길담 <span style="font-size:0.8em; color:var(--gold); font-weight:300; letter-spacing:0.05em;">吉談</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">사무소 소개</a></li>
+    <li><a href="#services">업무 분야</a></li>
+    <li><a href="#contact">연락처</a></li>
+  </ul>
+</nav>
+
+<!-- 히어로 -->
+<section class="hero" id="home">
+  <p class="hero-badge">Law Office · Gildam</p>
+  <h1>법률사무소 <span>길담<small style="font-size:0.45em; font-weight:400; letter-spacing:0.08em; color:var(--gold); vertical-align:middle; margin-left:0.4em;">吉談</small></span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">정성과 신뢰를 바탕으로<br>고객의 문제해결을 책임집니다.</p>
+  <a href="#contact" class="hero-cta">상담 문의</a>
+</section>
+
+<!-- 소개 -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div>
+      <img src="이삼일_프로필.png" alt="변호사 이삼일" class="about-photo">
+    </div>
+    <div>
+      <p class="section-label">About</p>
+      <h2 class="section-title">변호사 이삼일</h2>
+      <ul class="about-list">
+        <li>전북대학교 법학과 졸업</li>
+        <li>사법시험 제50회 합격</li>
+        <li>사법연수원 제40기 수료</li>
+        <li>전북지방변호사회 제1부회장</li>
+        <li>광주고등법원 원외재판부(전주) 조정위원</li>
+        <li>전북특별자치도 감사위원회 감사위원</li>
+        <li>전북특별자치도 행정심판위원회 위원</li>
+        <li>언론중재위원회 중재위원</li>
+        <li>전북대학교 징계위원</li>
+        <li>전북대학교 보통징계위원</li>
+        <li>전북대학교병원 인권심의위원</li>
+        <li>전북교육청 학교안전공제회보상심사위원회 위원</li>
+        <li>전주덕진소방서 감찰처분심의회</li>
+        <li>부안소방서 감찰처분심의회</li>
+        <li>대한변호사협회 청년변호사상 수상</li>
+        <li>전북지방변호사회 공로상 수상</li>
+        <li>전라북도자원봉사대상 전라북도지사상</li>
+        <li>전북도지사표창</li>
+        <li>전북특별자치도의회 표창</li>
+        <li>전북지방변호사회 표창</li>
+      </ul>
+    </div>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-num">사법시험 50회</div>
+        <div class="stat-label">사법연수원 40기 수료</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">15년+</div>
+        <div class="stat-label">전북 지역 변호사 활동</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">공익 · 전문</div>
+        <div class="stat-label">다수 공공기관 자문·위원 활동</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 업무 분야 -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <p class="section-label">Practice Areas</p>
+      <h2 class="section-title">업무 분야</h2>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <div class="service-title">기업 소송</div>
+        <div class="service-desc">주주간 분쟁, 임원 책임, 계약 분쟁 등 기업 관련 소송을 전문적으로 수행합니다.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <div class="service-title">기업 자문</div>
+        <div class="service-desc">계약 검토, 법적 리스크 관리, 내부 규정 정비 등 기업의 법무 전반을 지원합니다.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <div class="service-title">건설 · 부동산</div>
+        <div class="service-desc">공사 대금 분쟁, 하자 소송, 부동산 거래 분쟁 등 건설·부동산 전반을 다룹니다.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <div class="service-title">보험 · 금융</div>
+        <div class="service-desc">보험금 청구, 금융기관 분쟁, 투자 피해 등 금융 관련 법적 문제를 해결합니다.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <div class="service-title">형사</div>
+        <div class="service-desc">고소·고발 대리, 형사 변호, 수사단계 조력 등 형사 사건 전반을 처리합니다.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"></div>
+        <div class="service-title">이혼 · 상속 · 가사</div>
+        <div class="service-desc">이혼 소송, 재산 분할, 상속 분쟁, 친권·양육권 등 가사 사건을 신중하게 처리합니다.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 연락처 -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">상담 문의</h2>
+      <p class="section-desc">법적 문제로 고민이 있으시다면 언제든지 연락 주십시오. 상담 예약을 받고 있습니다.</p>
+    </div>
+    <div class="contact-list">
+      <div class="contact-item">
+        <div class="contact-label">전화</div>
+        <div class="contact-value"><a href="tel:0632312319">063-231-2319</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">팩스</div>
+        <div class="contact-value">063-231-2317</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">이메일</div>
+        <div class="contact-value"><a href="mailto:tony31@hanmail.net">tony31@hanmail.net</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">주소</div>
+        <div class="contact-value">전주시 덕진구 만성중앙로 19<br>명승법조타워 403호</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 푸터 -->
+<footer>
+  &copy; 2026 법률사무소 길담 · 변호사 이삼일 · All rights reserved.
+</footer>
+
+</body>
+</html>
