@@ -251,7 +251,7 @@
       max-width: 1000px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 220px 1fr 1fr;
+      grid-template-columns: 220px 1fr;
       gap: 4rem;
       align-items: start;
     }
@@ -265,9 +265,8 @@
 
     .about-list {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
+      columns: 2;
+      column-gap: 2rem;
       margin-top: 1.6rem;
     }
 
@@ -278,6 +277,8 @@
       padding-left: 1rem;
       position: relative;
       line-height: 1.6;
+      break-inside: avoid;
+      margin-bottom: 0.75rem;
     }
 
     .about-list li::before {
@@ -513,8 +514,9 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
 
-      .about-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .about-inner > div:first-child { grid-column: 1 / -1; max-width: 200px; margin: 0 auto; }
+      .about-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-inner > div:first-child { max-width: 180px; margin: 0 auto; }
+      .about-list { columns: 1; }
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
 
@@ -578,20 +580,6 @@
         <li>전북특별자치도의회 표창</li>
         <li>전북지방변호사회 표창</li>
       </ul>
-    </div>
-    <div class="about-stats">
-      <div class="stat">
-        <div class="stat-num">사법시험 50회</div>
-        <div class="stat-label">사법연수원 40기 수료</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">15년+</div>
-        <div class="stat-label">전북 지역 변호사 활동</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">공익 · 전문</div>
-        <div class="stat-label">다수 공공기관 자문·위원 활동</div>
-      </div>
     </div>
   </div>
 </section>
