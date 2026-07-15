@@ -12,11 +12,21 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://law231.com/#website",
+        "url": "https://law231.com",
+        "name": "법률사무소 길담",
+        "description": "전주 소재 법률사무소. 민사·가사·형사·기업소송 전문 변호사 이삼일.",
+        "publisher": { "@id": "https://law231.com/#organization" },
+        "inLanguage": "ko-KR"
+      },
+      {
         "@type": "LegalService",
         "@id": "https://law231.com/#organization",
         "name": "법률사무소 길담",
         "alternateName": "吉談",
         "url": "https://law231.com",
+        "image": "https://law231.com/이삼일_프로필.png",
         "telephone": "+82-63-231-2319",
         "faxNumber": "+82-63-231-2317",
         "email": "tony31@hanmail.net",
@@ -33,41 +43,77 @@
           "latitude": 35.8468,
           "longitude": 127.1307
         },
-        "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "전북특별자치도"
-        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "전북특별자치도" },
+          { "@type": "City", "name": "전주시" }
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "법률 서비스",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "민사소송", "description": "손해배상, 계약분쟁, 부동산, 보험·금융 등 민사 전반" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "가사소송", "description": "이혼, 재산분할, 상속, 친권·양육권" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "형사변호", "description": "고소·고발 대리, 형사 변호, 수사단계 조력" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "기업법무", "description": "기업 소송·자문, 계약 검토, 법적 리스크 관리" } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "민사소송", "description": "손해배상, 계약분쟁, 채권채무, 부당이득반환, 부동산·건설, 보험·금융 등 민사 전반" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "가사·이혼", "description": "이혼 소송, 재산분할, 위자료, 친권·양육권, 상속 분쟁, 유류분 반환 청구" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "형사변호", "description": "고소·고발 대리, 형사 변호, 수사단계 조력, 구속적부심, 영장실질심사" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "기업소송·기업자문", "description": "주주간 분쟁, 임원 책임 소송, 계약 분쟁, 계약서 검토, 법적 리스크 관리, 내부 규정 정비" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "건설·부동산", "description": "공사 대금 분쟁, 하자 소송, 부동산 거래·임대차 분쟁" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "보험·금융", "description": "보험금 청구, 금융기관 분쟁, 투자 피해 소송" } }
           ]
         },
-        "employee": { "@id": "https://law231.com/#attorney" }
+        "employee": { "@id": "https://law231.com/#attorney" },
+        "founder": { "@id": "https://law231.com/#attorney" }
       },
       {
-        "@type": "Attorney",
+        "@type": "Person",
         "@id": "https://law231.com/#attorney",
         "name": "이삼일",
         "jobTitle": "대표변호사",
+        "description": "사법시험 제50회 합격, 사법연수원 제40기 수료. 민사·가사·형사·기업소송 전문 변호사.",
+        "image": "https://law231.com/이삼일_프로필.png",
+        "url": "https://law231.com",
+        "telephone": "+82-63-231-2319",
+        "email": "tony31@hanmail.net",
         "worksFor": { "@id": "https://law231.com/#organization" },
         "alumniOf": {
           "@type": "CollegeOrUniversity",
           "name": "전북대학교",
           "department": "법학과"
         },
-        "knowsAbout": ["민사소송", "형사변호", "가사소송", "기업법무", "건설부동산", "보험금융"],
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "사법시험 제50회 합격",
+            "credentialCategory": "certificate"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "name": "사법연수원 제40기 수료",
+            "credentialCategory": "certificate"
+          }
+        ],
+        "memberOf": [
+          { "@type": "Organization", "name": "대한변호사협회" },
+          { "@type": "Organization", "name": "전북지방변호사회" }
+        ],
+        "knowsAbout": [
+          "민사소송", "가사소송", "이혼", "재산분할", "상속",
+          "형사변호", "기업소송", "기업자문", "건설부동산", "보험금융"
+        ],
         "award": [
           "대한변호사협회 청년변호사상",
           "전북지방변호사회 공로상",
-          "전라북도자원봉사대상 전라북도지사상"
-        ],
-        "telephone": "+82-63-231-2319",
-        "email": "tony31@hanmail.net"
+          "전라북도자원봉사대상 전라북도지사상",
+          "전북도지사표창",
+          "전북특별자치도의회 표창",
+          "전북지방변호사회 표창"
+        ]
       }
     ]
   }
