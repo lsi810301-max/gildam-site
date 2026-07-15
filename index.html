@@ -6,6 +6,12 @@
   <title>전주 변호사 이삼일 | 법률사무소 길담 — 민사·가사·형사·기업소송</title>
   <meta name="description" content="전주 법률사무소 길담 대표변호사 이삼일. 민사·형사·가사·기업소송·건설부동산·보험금융 전문. 사법시험 제50회, 사법연수원 제40기.">
   <meta name="keywords" content="전주변호사, 전주 법률사무소, 법률사무소 길담, 변호사 이삼일, 전주 민사소송, 전주 이혼변호사, 전주 형사변호사, 전주 기업소송, 전주 재산분할, 전북 변호사, 전주 법률상담">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="전주 변호사 이삼일 | 법률사무소 길담 — 민사·가사·형사·기업소송">
+  <meta property="og:description" content="전주 법률사무소 길담 대표변호사 이삼일. 민사·형사·가사·기업소송·건설부동산·보험금융 전문. 사법시험 제50회, 사법연수원 제40기.">
+  <meta property="og:url" content="https://law231.com/">
+  <meta property="og:image" content="https://law231.com/이삼일_프로필.png">
+  <meta property="og:locale" content="ko_KR">
   <link rel="canonical" href="https://law231.com/">
   <meta name="naver-site-verification" content="9d3dbbe599a6a7860dcf24e5f2449d77efda2bb2" />
   <script type="application/ld+json">
@@ -565,7 +571,7 @@
       .nav-links { display: none; }
 
       .about-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .about-inner > div:first-child { max-width: 180px; margin: 0 auto; }
+      .about-inner > figure { max-width: 180px; margin: 0 auto; }
       .about-list-grid { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
       .form-row { grid-template-columns: 1fr; }
@@ -580,18 +586,22 @@
 </head>
 <body>
 
-<!-- 네비게이션 -->
-<nav>
-  <div class="nav-logo">법률사무소 길담 <span style="font-size:0.8em; color:var(--gold); font-weight:300; letter-spacing:0.05em;">吉談</span></div>
-  <ul class="nav-links">
-    <li><a href="#about" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'});">사무소 소개</a></li>
-    <li><a href="#services" onclick="event.preventDefault();document.getElementById('services').scrollIntoView({behavior:'smooth'});">업무 분야</a></li>
-    <li><a href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'});">연락처</a></li>
-  </ul>
-</nav>
+<!-- 사이트 헤더 -->
+<header>
+  <nav aria-label="주 메뉴">
+    <div class="nav-logo">법률사무소 길담 <span style="font-size:0.8em; color:var(--gold); font-weight:300; letter-spacing:0.05em;">吉談</span></div>
+    <ul class="nav-links">
+      <li><a href="#about" onclick="event.preventDefault();document.getElementById('about').scrollIntoView({behavior:'smooth'});">사무소 소개</a></li>
+      <li><a href="#services" onclick="event.preventDefault();document.getElementById('services').scrollIntoView({behavior:'smooth'});">업무 분야</a></li>
+      <li><a href="#contact" onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'});">연락처</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
 
 <!-- 히어로 -->
-<section class="hero" id="home">
+<section class="hero" id="home" aria-label="소개">
   <p class="hero-badge">Law Office · Gildam</p>
   <h1>법률사무소 <span>길담<small style="font-size:0.45em; font-weight:400; letter-spacing:0.08em; color:var(--gold); vertical-align:middle; margin-left:0.4em;">吉談</small></span></h1>
   <div class="hero-divider"></div>
@@ -600,14 +610,14 @@
 </section>
 
 <!-- 소개 -->
-<section class="about" id="about">
+<section class="about" id="about" aria-labelledby="about-title">
   <div class="about-inner">
-    <div>
-      <img src="이삼일_프로필.png" alt="변호사 이삼일" class="about-photo">
-    </div>
-    <div>
+    <figure>
+      <img src="이삼일_프로필.png" alt="법률사무소 길담 대표변호사 이삼일 프로필 사진" class="about-photo">
+    </figure>
+    <article>
       <p class="section-label">About</p>
-      <h2 class="section-title">변호사 이삼일</h2>
+      <h2 class="section-title" id="about-title">변호사 이삼일</h2>
       <div class="about-list-grid">
         <ul class="about-list">
           <li>전북대학교 법학과 졸업</li>
@@ -637,84 +647,84 @@
           <li>전북지방변호사회 표창</li>
         </ul>
       </div>
-    </div>
+    </article>
   </div>
 </section>
 
 <!-- 업무 분야 -->
-<section class="services" id="services">
+<section class="services" id="services" aria-labelledby="services-title">
   <div class="services-inner">
-    <div class="services-header">
+    <header class="services-header">
       <p class="section-label">Practice Areas</p>
-      <h2 class="section-title">업무 분야</h2>
-    </div>
+      <h2 class="section-title" id="services-title">업무 분야</h2>
+    </header>
     <div class="services-grid">
 
-      <div class="service-card">
-        <div class="service-icon"></div>
-        <div class="service-title">기업 소송</div>
-        <div class="service-desc">주주간 분쟁, 임원 책임, 계약 분쟁 등 기업 관련 소송을 전문적으로 수행합니다.</div>
-      </div>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">기업 소송</h3>
+        <p class="service-desc">주주간 분쟁, 임원 책임, 계약 분쟁 등 기업 관련 소송을 전문적으로 수행합니다.</p>
+      </article>
 
-      <div class="service-card">
-        <div class="service-icon"></div>
-        <div class="service-title">기업 자문</div>
-        <div class="service-desc">계약 검토, 법적 리스크 관리, 내부 규정 정비 등 기업의 법무 전반을 지원합니다.</div>
-      </div>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">기업 자문</h3>
+        <p class="service-desc">계약 검토, 법적 리스크 관리, 내부 규정 정비 등 기업의 법무 전반을 지원합니다.</p>
+      </article>
 
-      <div class="service-card">
-        <div class="service-icon"></div>
-        <div class="service-title">건설 · 부동산</div>
-        <div class="service-desc">공사 대금 분쟁, 하자 소송, 부동산 거래 분쟁 등 건설·부동산 전반을 다룹니다.</div>
-      </div>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">건설 · 부동산</h3>
+        <p class="service-desc">공사 대금 분쟁, 하자 소송, 부동산 거래 분쟁 등 건설·부동산 전반을 다룹니다.</p>
+      </article>
 
-      <div class="service-card">
-        <div class="service-icon"></div>
-        <div class="service-title">보험 · 금융</div>
-        <div class="service-desc">보험금 청구, 금융기관 분쟁, 투자 피해 등 금융 관련 법적 문제를 해결합니다.</div>
-      </div>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">보험 · 금융</h3>
+        <p class="service-desc">보험금 청구, 금융기관 분쟁, 투자 피해 등 금융 관련 법적 문제를 해결합니다.</p>
+      </article>
 
-      <div class="service-card">
-        <div class="service-icon"></div>
-        <div class="service-title">형사</div>
-        <div class="service-desc">고소·고발 대리, 형사 변호, 수사단계 조력 등 형사 사건 전반을 처리합니다.</div>
-      </div>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">형사</h3>
+        <p class="service-desc">고소·고발 대리, 형사 변호, 수사단계 조력 등 형사 사건 전반을 처리합니다.</p>
+      </article>
 
-      <div class="service-card">
-        <div class="service-icon"></div>
-        <div class="service-title">이혼 · 상속 · 가사</div>
-        <div class="service-desc">이혼 소송, 재산 분할, 상속 분쟁, 친권·양육권 등 가사 사건을 신중하게 처리합니다.</div>
-      </div>
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true"></div>
+        <h3 class="service-title">이혼 · 상속 · 가사</h3>
+        <p class="service-desc">이혼 소송, 재산 분할, 상속 분쟁, 친권·양육권 등 가사 사건을 신중하게 처리합니다.</p>
+      </article>
 
     </div>
   </div>
 </section>
 
 <!-- 연락처 -->
-<section class="contact" id="contact">
+<section class="contact" id="contact" aria-labelledby="contact-title">
   <div class="contact-inner">
     <div>
       <p class="section-label">Contact</p>
-      <h2 class="section-title">상담 문의</h2>
+      <h2 class="section-title" id="contact-title">상담 문의</h2>
       <p class="section-desc">법적 문제로 고민이 있으시다면 언제든지 연락 주십시오. 상담 예약을 받고 있습니다.</p>
-      <div class="contact-list">
+      <address class="contact-list">
         <div class="contact-item">
-          <div class="contact-label">전화</div>
-          <div class="contact-value"><a href="tel:0632312319">063-231-2319</a></div>
+          <p class="contact-label">전화</p>
+          <p class="contact-value"><a href="tel:0632312319">063-231-2319</a></p>
         </div>
         <div class="contact-item">
-          <div class="contact-label">팩스</div>
-          <div class="contact-value">063-231-2317</div>
+          <p class="contact-label">팩스</p>
+          <p class="contact-value">063-231-2317</p>
         </div>
         <div class="contact-item">
-          <div class="contact-label">이메일</div>
-          <div class="contact-value"><a href="mailto:tony31@hanmail.net">tony31@hanmail.net</a></div>
+          <p class="contact-label">이메일</p>
+          <p class="contact-value"><a href="mailto:tony31@hanmail.net">tony31@hanmail.net</a></p>
         </div>
         <div class="contact-item">
-          <div class="contact-label">주소</div>
-          <div class="contact-value">전주시 덕진구 만성중앙로 19<br>명승법조타워 403호</div>
+          <p class="contact-label">주소</p>
+          <p class="contact-value">전주시 덕진구 만성중앙로 19<br>명승법조타워 403호</p>
         </div>
-      </div>
+      </address>
     </div>
     <form class="consult-form" id="consultForm">
       <div class="form-row">
@@ -755,6 +765,8 @@
     </form>
   </div>
 </section>
+
+</main>
 
 <!-- 푸터 -->
 <footer>
